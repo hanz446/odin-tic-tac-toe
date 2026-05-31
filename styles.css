@@ -53,10 +53,19 @@ h1, h2, h3, h4, h5, h6 {
     --border-muted: oklch(0.3 0.05 305);
     --primary: oklch(0.76 0.1 305);
     --secondary: oklch(0.76 0.1 125);
-    --danger: oklch(0.7 0.05 30);
-    --warning: oklch(0.7 0.05 100);
-    --success: oklch(0.7 0.05 160);
+    --computer: oklch(0.7 0.15 30);
+    --player: oklch(0.7 0.1 160);
+    --turn: oklch(0.9 0.18 100);
     --info: oklch(0.7 0.05 260);
+    --win-out: oklch(0.6 0.05 160);
+    --lose-out: oklch(0.6 0.05 30);
+    --draw-out: oklch(0.6 0.1 305);
+    --win-in: oklch(0.8 0.05 160);
+    --lose-in: oklch(0.8 0.05 30);
+    --draw-in: oklch(0.8 0.1 305);
+    --win-border: oklch(0.5 0.1 160);
+    --lose-border: oklch(0.5 0.1 30);
+    --draw-border: oklch(0.5 0.2 305);
     interpolate-size: allow-keywords;
 }
 
@@ -104,12 +113,6 @@ h1.ongoing {
     opacity: 1;
     max-height: 32rem;
 }
-#game-display.ongoing.win {
-    background-color: oklch(0.6 0.05 160);
-}
-#game-display.ongoing.lose {
-    background-color: oklch(0.6 0.05 30);
-}
 
 #score-container {
     flex-shrink: 1;
@@ -119,7 +122,20 @@ h1.ongoing {
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--text);
+    padding-top: 0.8rem;
     text-wrap-mode: nowrap;
+}
+#player-score,
+#comp-score {
+    transition: transform 0.5s ease-in-out;
+}
+#player-score.active {
+    color: var(--turn);
+    transform: scale(1.2) translate(0, -10px);
+}
+#comp-score.active {
+    color: var(--turn);
+    transform: scale(1.2) translate(0, -10px);
 }
 
 #board-container {
